@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your's Album</title>
+    <link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/colorExtention.css">
+    <script src="./js/jquery-3.5.0.min.js"></script>
+</head>
+<body>
+  <audio autoplay="autopaly" loop="loop" id="player">
+    <source src="music/bg.mp3" type="audio/mp3" />
+  </audio>
+  <script>
+		 function e(event){  // 定义事件对象标准化函数
+			if( ! event){  // 兼容IE浏览器
+				event = window.event;
+				event.target = event.srcElement;
+				event.layerX = event.offsetX;
+				event.layerY = event.offsetY;
+			}
+			event.mx = event.pageX || event.clientX + document.body.scrollLeft;
+			// 计算鼠标指针的x轴距离
+			event.my = event.pageY || event.clientY + document.body.scrollTop;
+			// 计算鼠标指针的y轴距离
+			return event;  // 返回标准化的事件对象
+		}
+		 document.onmousedown = function(event){  // 按下鼠标时，初始化处理
+			event = e(event);  // 获取标准事件对象
+			var vAudio = document.getElementById("player");
+			if(vAudio.paused){
+				vAudio.paused=false;
+				vAudio.play();
+			}
+		}
+	</script>
+  <header class="">
+    <h1>情字何解 怎落笔都不对</h1>
+  </header>
+  <div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="./js/index.js"></script>
+	<script src=" ./js/jq.min.js"></script>
+	<script src='./js/stopExecutionOnTimeout.js'></script>
+	<script src="./js/sakura.js"></script>
+	<script src="./js/buffer.js"></script>
+  <script>
+    renderStar()
+    renderColorByTime()
+    window.onload = function () {
+      $("#loadingAni").fadeOut(600);
+      $("header").addClass('animate__animated animate__fadeInDown animate__delay-1s')
+      $("main").show(0)
+      $('main').load('./pages/info.html')
+      $("main").addClass('animate__animated animate__fadeInUpBig animate__delay-1s')
+    };
+    $(function () {
+  
+    })
+  </script>	
+</body>
+</html>
